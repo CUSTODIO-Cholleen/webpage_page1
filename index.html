@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BLUEBOX.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: whitesmoke;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 15px auto 40px;
+            background: white;
+            padding: 15px 20px 40px;
+            border: 1px solid silver;
+        }
+
+        /* ===== hider/nav ===== */
+        header {
+            border-bottom: 1px solid gray;
+            padding-bottom: 7px;
+            margin-bottom: 10px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            background: white;
+            border: 1px solid silver;
+            padding: 4px 8px;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 36px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            color: blue;
+            margin-top: 8px;
+        }
+
+        .search-icon {
+            font-size: 18px;
+            margin-right: 6px;
+        }
+
+        /* ===== welkam bar ===== */
+        .welcome-bar {
+            margin-top: 10px;
+            border: 1px solid darkgray;
+            padding: 6px;
+            font-size: 12px;
+            background: white;
+        }
+
+        /* ===== talaan ng contents ===== */
+        .top-wrapper {
+            margin-top: 12px;
+            border: 1px solid lightgray;
+            padding: 8px;
+            background: white;
+        }
+
+        .top-title {
+            display: inline-block;
+            padding: 2px 6px;
+            border: 1px solid lightgray;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 10px;
+            background: lightgray;
+        }
+
+        .top-content {
+            display: flex;
+            gap: 45px;
+            align-items: flex-start;
+            font-size: 13px;
+        }
+
+        .top-column ul {
+            list-style: none;
+            line-height: 1.7;
+        }
+
+        .top-small-box {
+            border: 1px solid lightgray;
+            padding: 8px 12px;
+            min-width: 200px;
+            background: whitesmoke;
+        }
+
+        .top-small-box h4 {
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .top-small-box ul {
+            list-style: none;
+            line-height: 1.7;
+        }
+
+        .top-small-box .sub-title {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* ===== hottest/local ===== */
+        .section-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 18px;
+        }
+
+        .box {
+            border: 1px solid lightgray;
+            padding: 8px;
+            flex: 1;
+            background: whitesmoke;
+        }
+
+        .box-title {
+            display: inline-block;
+            padding: 2px 6px;
+            border: 1px solid lightgray;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 8px;
+            background: white;
+        }
+
+        .poster-row {
+            display: flex;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .poster-column {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .poster {
+            width: 100%;
+            border: 1px solid silver;
+            height: 170px;
+            object-fit: cover;
+            background: lightgray;
+        }
+
+        /* ===== koleksyon ===== */
+          .movie-collections {
+            margin-top: 40px;
+            border-top: 1px solid silver;
+            padding-top: 25px;
+        }
+
+        .movie-collections-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .movie-collections-title span {
+            display: inline-block;
+            border: 1px solid lightgray;
+            padding: 6px 40px;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 20px;
+            background: whitesmoke;
+        }
+
+        .movie-grid {
+            display: flex;
+            gap: 18px;
+        }
+
+        .movie-card {
+            flex: 1;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .movie-card img {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            border: 1px solid silver;
+            object-fit: cover;
+            background: whitesmoke;
+            margin-bottom: 6px;
+        }
+
+        .movie-card h3 {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .movie-card p {
+            font-style: italic;
+        }
+
+        /* ===== kontak ===== */
+        #contact {
+            margin-top: 40px;
+            border-top: 1px solid whitesmoke;
+            padding-top: 20px;
+        }
+
+        #contact h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #contact p {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        #contact form {
+            max-width: 450px;
+            background: lightgray;
+            border: 1px solid silver;
+            padding: 62.5%;
+        }
+
+        #contact label {
+            display: block;
+            font-size: 13px;
+            margin-top: 8px;
+            margin-bottom: 3px;
+        }
+
+        #contact input,
+        #contact textarea {
+            width: 100%;
+            padding: 0.6%;
+            font-size: 13px;
+            border: 1px solid lightgray;
+        }
+
+        #contact button {
+            margin-top: 10px;
+            padding: 37.5% 75%;
+            font-size: 13px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #contact button:hover {
+            background: lightslategray;
+        }
+
+        /* ===== pangrespond ===== */
+        @media (max-width: 900px) {
+            .top-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .section-row {
+                flex-direction: column;
+            }
+
+            .movie-grid {
+                flex-direction: column;
+            }
+        
+        }
+        
+    </style>
+</head>
+<body>
+<div class="page" id="home">
+    <!-- ===== hider ===== -->
+    <header>
+        <div class="top-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#contact">Contact Us!</a></li>
+            </ul>
+            <div>
+                <span class="search-icon">&#128269;</span>
+            </div>
+        </div>
+        <div class="logo"><b><em>BLUEBOX.</em></b></div>
+        <div class="welcome-bar">
+            Welcome! This website features selected movies and films. You can explore posters, summaries, and learn
+            where to watch them. Use the navigation above to explore the site!
+        </div>
+    </header>
+
+    <!-- ===== table of contents ===== -->
+    <section class="top-wrapper">
+        <div class="top-title">TABLE OF CONTENTS:</div>
+
+        <div class="top-content">
+            <!-- column 1 -->
+            <div class="top-column">
+                <ul>
+                    <li>- Sinners</li>
+                    <li>- Mission: Impossible – The Final Reckoning</li>
+                    <li>- Superman</li>
+                    <li>- F1 THE MOVIE</li>
+                    <li>- Thunderbolts</li>
+                    <li>- Black Bag</li>
+                    <li>- The Naked Gun</li>
+                    <li>- The Fantastic Four: First Steps</li>
+                    <li>- Weapons</li>
+                    <li>- 28 Years Later</li>
+                    <li>- Mickey 17</li>
+                    <li>- Ballerina</li>
+                </ul>
+            </div>
+
+            <!-- column 2 -->
+            <div class="top-column">
+                <ul>
+                    <li>- Companion</li>
+                    <li>- Final Destination: Bloodlines</li>
+                    <li>- How to Train Your Dragon</li>
+                    <li>- Jurassic World Rebirth</li>
+                    <li>- Nobody 2</li>
+                    <li>- Warfare</li>
+                    <li>- A Minecraft Movie</li>
+                    <li>- Bring Her Back</li>
+                    <li>- Highest 2 Lowest</li>
+                    <li>- KPOP Demon Hunters</li>
+                    <li>- The Accountant 2</li>
+                    <li>- Together</li>
+                </ul>
+            </div>
+
+            <!-- right smoll box -->
+            <div class="top-small-box">
+                <h4>HOTTEST:</h4>
+                <ul>
+                    <li>- The Conjuring: Last Rites</li>
+                    <li>- Spiderman: No Way Home</li>
+                    <li>- Wonka</li>
+                </ul>
+
+                <div class="sub-title">LOCAL</div>
+                <ul>
+                    <li>- Kontrabida Academy</li>
+                    <li>- Balota</li>
+                    <li>- Green Bones</li>
+                    <li>- Hello, Love, Again</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== hottest shows ===== -->
+    <section class="section-row">
+        <!-- Hottest Shows -->
+        <div class="box">
+            <div class="box-title">HOTTEST SHOWS!</div>
+            <div class="poster-column">
+                <img class="poster" src="conjuring.jpg" alt="The Conjuring: Last Rites">
+                <img class="poster" src="spiderman.jpg" alt="Spiderman: Far From Home">
+                <img class="poster" src="wonka.jpg" alt="Wonka">
+            </div>
+        </div>
+
+        <!-- Local Films -->
+        <div class="box">
+            <div class="box-title">LOCAL FILMS</div>
+            <div class="poster-row">
+                <img class="poster" src="kontrabidaakademy.jpg" alt="Kontrabida Academy">
+                <img class="poster" src="balota.jpg" alt="Balota">
+                <img class="poster" src="greenbone.jpg" alt="Green Bones">
+                <img class="poster" src="hello love again.jpg" alt="Hello, Love, Again">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== movies ===== -->
+    <section class="movie-collections" id="movies">
+        <div class="movie-collections-title">
+            <span>MOVIE COLLECTIONS</span>
+        </div>
+
+        <div class="movie-grid">
+            <!-- Card 1 -->
+            <div class="movie-card">
+                <img src="sinners.jpg" alt="Sinners">
+                <h3>Sinners</h3>
+                <p>"Trying to leave their troubled lives behind, twin brothers return to their Mississippi hometown to
+                    start again, only to discover that an even greater evil is waiting to welcome them back."</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="movie-card">
+                <img src="missionimpossible.jpg" alt="Mission Impossible The Final Reckoning">
+                <h3>Mission: Impossible – The Final Reckoning</h3>
+                <p>"Ethan Hunt and the IMF team race against time to find The Entity, a rogue artificial intelligence
+                    that can destroy mankind."</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="movie-card">
+                <img src="superman.jpg" alt="Superman">
+                <h3>Superman</h3>
+                <p>"When Superman gets drawn into conflicts at home and abroad, his actions are questioned, giving tech
+                    billionaire Lex Luthor the opportunity to save the world from its greatest threat: Superman
+                    himself."</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="movie-card">
+                <img src="f1 the movie.jpg" alt="F1 The Movie">
+                <h3>F1 THE MOVIE</h3>
+                <p>"In the 1990s, Sonny Hayes was Formula 1's most promising driver until an accident ended his dream.
+                    Years later, he returns to the track, ready to prove he still belongs."</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>
